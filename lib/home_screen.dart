@@ -10,6 +10,7 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
+
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
@@ -48,15 +49,15 @@ class _HomeScreenState extends State<HomeScreen> {
                             Navigator.pop(context);
                           },
                         ),
-                        Divider(
+                        const Divider(
                           height: 0,
                         ),
                         ListTile(
                           onTap: (){
                             Navigator.pop(context);
                           },
-                          leading: Icon(Icons.delete_outlined),
-                          title: Text('Delete'),
+                          leading: const Icon(Icons.delete_outlined),
+                          title: const Text('Delete'),
                         )
                         
                       ],
@@ -73,7 +74,7 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           },
           separatorBuilder: (context, index) {
-            return Divider(
+            return const Divider(
               height: 4,
             );
           },
