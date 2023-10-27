@@ -41,10 +41,15 @@ class _AddnewTaskModalState extends State<AddnewTaskModal> {
 
           ),
           const SizedBox(
-            height: 16,
+            height: 24,
           ),
 
-          ElevatedButton(onPressed: (){}, child: const Text('Add'))
+          SizedBox(
+            width: double.infinity,
+            child: ElevatedButton(
+
+                onPressed: (){}, child: const Text('Add')),
+          )
 
         ],
       ),

@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:todo_project/update_task_modal.dart';
 
 import 'add_new_task_modal.dart';
 
@@ -17,7 +18,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.red,
-          title: Text("Todo-App"),
+          title: const Text("Todo-App"),
           centerTitle: true,
         ),
         floatingActionButton: FloatingActionButton(
@@ -47,6 +48,14 @@ class _HomeScreenState extends State<HomeScreen> {
                           title: const Text('Update'),
                           onTap: (){
                             Navigator.pop(context);
+                            showModalBottomSheet(context: context, builder: (context){
+                              return UpdateModal();
+
+
+                            });
+
+
+
                           },
                         ),
                         const Divider(
