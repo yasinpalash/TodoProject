@@ -1,18 +1,34 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class UpdateModal extends StatefulWidget {
-  const UpdateModal({super.key});
+import 'Todo_task.dart';
+
+class UpdateTaskModal extends StatefulWidget {
+  const UpdateTaskModal({
+    super.key,
+    required this.todo,
+    required this.onTodoUpdate
+  });
+
+  final Todo todo;
+  final Function(String) onTodoUpdate;
 
   @override
-  State<UpdateModal> createState() => _UpdateModalState();
+  State<UpdateTaskModal> createState() => _UpdateTaskModalState();
 }
 
-class _UpdateModalState extends State<UpdateModal> {
+class _UpdateTaskModalState extends State<UpdateTaskModal> {
+  late TextEditingController todoTEController;
+
+  @override
+  void initState() {
+    super.initState();
+    todoTEController = TextEditingController(text: widget.todo.details);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(20),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         children: [
           Row(
@@ -20,29 +36,41 @@ class _UpdateModalState extends State<UpdateModal> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Update Your Task',
+                'Update todo',
                 style: Theme.of(context).textTheme.titleLarge,
               ),
-               IconButton(onPressed: () {
-                 Navigator.pop(context);
-               },
-               icon: Icon(Icons.close),)
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(Icons.close),
+              ),
             ],
           ),
-          SizedBox(
-            height: 10,
+          const SizedBox(
+            height: 24,
           ),
           TextFormField(
+            controller: todoTEController,
             maxLines: 4,
             decoration: const InputDecoration(
-                hintText: 'Enter Your Update Todo',
-                enabledBorder: OutlineInputBorder(),
-                focusedBorder: OutlineInputBorder()),
+              hintText: 'Enter your todo here',
+              enabledBorder: OutlineInputBorder(),
+              focusedBorder: OutlineInputBorder(),
+            ),
           ),
-          const SizedBox(height: 24,),
+          const SizedBox(
+            height: 16,
+          ),
           SizedBox(
               width: double.infinity,
-              child: ElevatedButton(onPressed: () {}, child: const Text('Update')))
+              child: ElevatedButton(
+                onPressed: () {
+                  widget.onTodoUpdate(todoTEController.text.trim());
+                  Navigator.pop(context);
+                },
+                child: const Text('Update'),
+              ))
         ],
       ),
     );
