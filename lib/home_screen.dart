@@ -12,14 +12,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
   List<Todo> todoList = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Todos'),
+        centerTitle: true,
+        title: const Text('ToDos',
+            style: TextStyle(
+              fontSize: 24, // Adjust the font size as needed
+              fontWeight: FontWeight.bold, // Make the text bold
+              color: Colors.black, // Change the text color
+              letterSpacing: 2.0, // Adjust the letter spacing
+            )),
+        backgroundColor:
+            Colors.redAccent, // Change the app bar background color
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
@@ -41,7 +49,7 @@ class _HomeScreenState extends State<HomeScreen> {
         itemBuilder: (context, index) {
           final Todo todo = todoList[index];
           final String formattedDate =
-          DateFormat('hh:mm a dd-MM-yy').format(todo.createdDateTime);
+              DateFormat('hh:mm a dd-MM-yy').format(todo.createdDateTime);
           return ListTile(
             tileColor: todo.status == 'done' ? Colors.grey : null, // ternary
             onTap: () {
@@ -63,7 +71,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                   builder: (context) {
                                     return UpdateTaskModal(
                                       todo: todo,
-                                      onTodoUpdate: (String updatedDetailsText) {
+                                      onTodoUpdate:
+                                          (String updatedDetailsText) {
                                         updateTodo(index, updatedDetailsText);
                                       },
                                     );
@@ -87,7 +96,8 @@ class _HomeScreenState extends State<HomeScreen> {
                   });
             },
             onLongPress: () {
-              String currentStatus = todo.status == 'pending' ? 'done' : 'pending';
+              String currentStatus =
+                  todo.status == 'pending' ? 'done' : 'pending';
               updateTodoStatus(index, currentStatus);
             },
             leading: CircleAvatar(

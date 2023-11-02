@@ -63,21 +63,32 @@ class _AddNewTaskModalState extends State<AddNewTaskModal> {
             const SizedBox(
               height: 16,
             ),
-            SizedBox(
-                width: double.infinity,
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      Todo todo = Todo(details: todoTEController.text.trim(),
-                        createdDateTime: DateTime.now(),
-                        updatedDateTime: DateTime.now(),
-                      );
-                      widget.onAddTap(todo);
-                      Navigator.pop(context);
-                    }
-                  },
-                  child: const Text('Add'),
-                ))
+            Container(
+              width: double.infinity, // Make the button full width
+              margin: const EdgeInsets.all(16), // Add margin for spacing
+              child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  primary: Colors.redAccent, // Background color
+                  onPrimary: Colors.white, // Text color
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(8.0), // Round the corners
+                  ),
+                ),
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    Todo todo = Todo(
+                      details: todoTEController.text.trim(),
+                      createdDateTime: DateTime.now(),
+                      updatedDateTime: DateTime.now(),
+                    );
+                    widget.onAddTap(todo);
+                    Navigator.pop(context);
+                  }
+                },
+                child: const Text('Add'),
+              ),
+            )
+
           ],
         ),
       ),
