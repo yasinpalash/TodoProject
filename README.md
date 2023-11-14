@@ -1,23 +1,22 @@
-# todo_project
+# Flutter Todos Project
 
-A new Flutter project.
+A simple Flutter project for managing todos with features like add, update, and delete.
 
-## Getting Started
+## Introduction
 
-This project is a starting point for a Flutter application.
+This Flutter Todos project is designed to help you manage your todos efficiently. It provides basic functionalities like adding new todos, updating existing ones, and deleting completed tasks.
 
-A few resources to get you started if this is your first Flutter project:
+## Features
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-Note-2
-this is note-2
+- Add Todo: Easily add new tasks to your todo list.
+- Update Todo: Edit and modify existing todos.
+- Delete Todo: Remove completed tasks from your list.
 
 
+## Usage
 
-https://github.com/yasinpalash/Todo_Project/assets/145049322/9dbf8247-d20b-477e-a84c-760d9b33aada
+Once the app is running, use the provided UI to interact with your todos. Add new tasks, update existing ones, and delete completed todos.
+
+## Screenshots
+![Untitled design (3)](https://github.com/yasinpalash/Todo_Project/assets/145049322/9e83a587-bf88-463e-a37b-09064cfa7904)
 
